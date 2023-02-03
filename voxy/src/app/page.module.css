@@ -1,4 +1,5 @@
 .main {
+  background-color: rgb(226, 226, 226);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -6,3 +7,38 @@
   padding: 6rem;
   min-height: 100vh
 }
+
+
+.textarea {
+  background-color: rgb(235, 235, 235);
+  font-size: 1.5em;
+  border-radius: 10px;
+  border-width: 0px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  
+}
+
+.textarea::placeholder {
+  font-size: 1.6em;
+}
+
+.container {
+
+  grid-template-columns: 50% 50%;
+}
+
+.container_lines {
+
+  grid-template-rows: 25% 50% 25%;
+}
+
+
+.button {
+  padding: 1% 2% 1% 2%;
+  border-radius: 10px;
+  border-width: 0px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  
+}
+
+

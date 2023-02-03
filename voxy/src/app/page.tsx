@@ -8,31 +8,64 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [words, setWords] = useState('')
+  const [showError, setShowError] = useState(false)
+  const [submit, setSubmit] = useState(false)
+  
 
-  const total_words = () => {
+  const totalWords = () => {
     return words.split(/\s/).filter(e => ( e != '')).length
   }
   
+  const errorMensage = () => {
+    return words === '' ? (   
+      <h2>
+        Ops voce tem que escrever alguma coisa!!!!
+      </h2> 
+    ) : (
+      <h3>
+        Número de palavras: {totalWords()}
+      </h3>
+    )
+  }
 
   return (
     <main className={styles.main}>
-      <div>
-        <h2 style={{paddingTop: 100, paddingBottom: 100}}>
-          Coloque o texto na caixa logo abaixo para contar quantas palavras o texto tem!
-        </h2>
+      <div className={styles.container_lines}>
+        <h1 style={{paddingTop: 100, paddingBottom: 100, paddingLeft:300}}>
+          Contador de palavras
+        </h1>
+
+      
+        { showError && errorMensage()} 
         
         <textarea 
-         rows={10}
-         cols={70}
-
+          className={styles.textarea}
+          rows={10}
+          cols={70}
+          placeholder='Insira seu texto aqui.'
           value={words}
-          onChange={e => setWords(e.target.value)}
+          onChange={e => {
+            setWords(e.target.value)
+            setSubmit(false)
+            setShowError(false)
+          }}
         >
         </textarea>
 
-        <h3 style={{paddingTop: 100}}>
-          Numero de palavras {total_words()}
-        </h3>
+        <div 
+          className={styles.container} 
+          style={{paddingTop: 50}}
+        >
+          <button 
+            className={styles.button} 
+            onClick={()=> {
+              setShowError(true)
+              setSubmit(true)
+            }}
+          >
+              Submit
+          </button>
+        </div>
       </div>
     </main>
   )
