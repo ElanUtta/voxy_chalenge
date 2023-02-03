@@ -16,7 +16,7 @@ export default function Home() {
     return words.split(/\s/).filter(e => ( e != '')).length
   }
   
-  const errorMensage = () => {
+  const userMensage = () => {
     return words === '' ? (   
       <h2>
         Ops voce tem que escrever alguma coisa!!!!
@@ -34,9 +34,8 @@ export default function Home() {
         <h1 style={{paddingTop: 100, paddingBottom: 100, paddingLeft:300}}>
           Contador de palavras
         </h1>
-
       
-        { showError && errorMensage()} 
+        { showError && userMensage()} 
         
         <textarea 
           className={styles.textarea}
